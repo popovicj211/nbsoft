@@ -1,0 +1,245 @@
+body {
+    line-height: 1.5;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+h1,
+h2,
+.position {
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 3.2em;
+    text-align: center;
+}
+
+h2 {
+    color: #0097cf;
+    font-size: 1.8em;
+    padding: 1em 0 0.5em 0;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+p {
+    font-size: 1.1em;
+}
+
+
+/*
+header {
+    background: url('../images/Screenshot from 2022-09-15 23-42-00.png') no-repeat;
+    background-size: cover;
+}
+*/
+
+.wrapper-hf {
+    position: relative;
+    padding: 7em 0 12em 0;
+}
+
+header::before {
+    content: "";
+    background: url('../images/Screenshot from 2022-09-15 23-42-00.png') no-repeat;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    z-index: -1;
+}
+
+header::after {
+    content: "";
+    background: url('../images/Screenshot\ from\ 2022-09-15\ 23-44-27.png') no-repeat;
+    background-size: cover;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    z-index: -1;
+}
+
+.position {
+    color: #1e497d;
+    font-size: 1.8em;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.profile img {
+    width: 250px;
+    height: 250px;
+}
+
+main {
+    padding-top: 1.8em;
+}
+
+
+/*
+.projects-section h2 {
+    padding: 1.8em 0 1em 0;
+}*/
+
+.info-section .info-skills:first-child>h2,
+.projects-section>h2 {
+    padding: 0 0 0.5em 0;
+}
+
+.projects-section {
+    padding-right: 63px;
+}
+
+.project {
+    margin-top: 20px;
+    /*  padding: 10px 80px 0 0;*/
+    padding-top: 10px;
+}
+
+.project>p {
+    margin: 0;
+}
+
+.project-github {
+    color: #0097cf;
+}
+
+.info-section {
+    border-left: 4px solid #0097cf;
+    padding-left: 5em;
+}
+
+.info-section>.info-skills:nth-child(1) {
+    line-height: 2;
+}
+
+.info-section>.info-skills:nth-child(2)>h2 {
+    padding: 10px 0 20px 0;
+}
+
+.info-section>.info-skills:nth-child(2)>div {
+    height: 300px !important;
+}
+
+ul {
+    padding-left: 0;
+}
+
+
+/*
+footer {
+    background: url('../images/Screenshot\ from\ 2022-09-15\ 23-44-27.png') no-repeat;
+    background-size: cover;
+    height: 200px;
+}*/
+
+
+/*
+.project {
+    line-height: 1.5;
+}*/
+
+@media screen and (max-width: 1024px) {
+    h1 {
+        font-size: 2.7em;
+    }
+    h2 {
+        font-size: 1.3em;
+        /*  padding: 1em 0 0.5em 0;*/
+        /*  font-size: 1.8em;*/
+    }
+    h3 {
+        font-size: 1em;
+        /*  font-size: 1.3em;*/
+    }
+    p,
+    ul li {
+        font-size: 0.9em;
+        /* font-size: 1.1em;*/
+    }
+    .position {
+        font-size: 1.4em;
+        letter-spacing: 1px;
+        /* font-size: 1.8em;*/
+    }
+    .profile img {
+        width: 200px;
+        height: 200px;
+    }
+    .projects-section {
+        /* padding-right: 63px;*/
+        padding-right: 25px;
+    }
+    .info-section {
+        border-left: 3px solid #0097cf;
+        padding-left: 3em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .info-section {
+        border-left: none;
+        border-top: 3px solid #0097cf;
+        /*padding-left: 0;*/
+        padding-top: 2em;
+    }
+    h1 {
+        font-size: 2.2em;
+    }
+    h2 {
+        font-size: 1.1em;
+        /*  padding: 1em 0 0.5em 0;*/
+        /*  font-size: 1.8em;*/
+    }
+    h3 {
+        font-size: 0.9em;
+        /*  font-size: 1.3em;*/
+    }
+    p,
+    ul li {
+        font-size: 0.8em;
+        /* font-size: 1.1em;*/
+    }
+    .profile {
+        text-align: center;
+    }
+    .projects-section {
+        /* padding-right: 63px;*/
+        padding-right: 0;
+    }
+    .info-section {
+        padding-left: 0;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        max-width: 1220px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+        max-width: 1040px;
+    }
+}
