@@ -26,7 +26,8 @@ orderr as o ON u.id = o.userId INNER JOIN
 orderItem as oi ON o.id = oi.orderId GROUP BY u.firstname, u.lastname, oi.orderId; 
 
 e)
-
+SELECT u.firstname, u.lastname, oi.orderId FROM user as u INNER JOIN orderr as o ON u.id = o.userId INNER JOIN 
+orderItem as oi ON o.id = oi.orderId GROUP BY u.firstname, u.lastname, oi.orderId HAVING COUNT(DISTINCT oi.id) >= 2 
 
 
 f) SELECT u.* FROM user as u

@@ -4,22 +4,18 @@ $dir  = $_SERVER["DOCUMENT_ROOT"].'/nbsoft/zadatak4/files';
 
 $dir2  = $_SERVER["DOCUMENT_ROOT"].'/nbsoft/zadatak4/files/folder2';
 
-//$files1 = scandir($dir2);
-
-//print_r($files1);
-
 
 function getDataFromFile($files){
 if(isset($files)){
   $eachFile = [];
   $records = [];
     for($i = 0; $i < count($files); $i++){
-      $eachFile[] = file($files[$i]);
+     $eachFile[] = file($files[$i]);
       for($j = 0; $j < count($eachFile[$i]); $j++){
-       $records[] = explode("\t", $eachFile[$i][$j]);
-      }
+          $records[] = explode("\t", $eachFile[$i][$j]);
+     }
     }  
-    return $files;
+    return $eachFile[0];
 }
   return null;
    
@@ -52,7 +48,7 @@ function scanAllDir($dir2) {
     }
   }
   return array("result" => $result , "fileRecords" => $getDataFromFileArr);
-//return $image;
+
 }
 
 $rt = scanAllDir($dir2);
@@ -61,65 +57,15 @@ print_r($rt);
 
 
 
-
+showFileDataOnPage(scanAllDir($dir2));
 
 
 function showFileDataOnPage($getDataFromFileArr){
 
-
-
-
-  echo "";
+  echo "<ul>";
+    foreach($getDataFromFileArr["fileRecords"] as $value){
+      echo "<li>".$value."</li>";
+    }
+  echo "</ul>";
 }
 
-/*
-  function readFileSubDir($scanDir) {
-
-	$handle = opendir($scanDir);
-
-	while (($fileItem = readdir($handle)) !== false) {
-		
-		if (($fileItem == '.') || ($fileItem == '..')) continue;
-		$fileItem = rtrim($scanDir,'/') . '/' . $fileItem;
-
-		if (is_dir($fileItem)) {
-			foreach (readFileSubDir($fileItem) as $childFileItem) {
-				yield $childFileItem;
-			}
-
-		} else {
-			yield $fileItem;
-		}
-	}
-
-	closedir($handle);
-}
-
-
-$rt3 = scanAllDir($dir2);
-
-print_r($rt3);*/
-
-
-/*
-function listAllFiles($dir) {
-    $array = array_diff(scandir($dir), array('.', '..'));
-   
-    foreach ($array as &$item) {
-      $item = $dir . $item;
-    }
-    unset($item);
-    foreach ($array as $item) {
-      if (is_dir($item)) {
-       $array = array_merge($array, listAllFiles($item . DIRECTORY_SEPARATOR));
-      }
-    }
-    return $array;
-  }
-
-
-$rt3 =  listAllFiles($dir2);
-
-print_r($rt3);
-
-*/
