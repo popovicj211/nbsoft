@@ -11,7 +11,21 @@ $('.regular').slick({
     speed: 300,
     slidesToShow: 3,
     slidesToScroll: 3,
-    responsive: [{
+    prevArrow: '<div class="arrow left"> <i class="fas fa-arrow-left fa-lg" ></i>    </div>',
+    nextArrow: '<div class="arrow right"><i class="fas fa-arrow-right fa-lg"></i></div>',
+    responsive: [
+
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true
+            }
+        },
+        {
+
             breakpoint: 600,
             settings: {
                 slidesToShow: 2,
