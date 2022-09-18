@@ -8,6 +8,7 @@ $(document).ready(function() {
     let regLastname = /^[A-ZČĆŠĐŽ][a-zčćšđž]{3,}(\s[A-ZČĆŠĐŽ][a-zčćšđž]{3,})*$/;
     let regAddress = /^[A-ZČĆŠĐŽ][a-zčćšđž]{4,}(\s[A-ZČĆŠĐŽa-zčćšđž]{4,})*(\s[1-9][0-9]{1,2}[a-z]{0,2})$/;
     let regMessage = /^[A-ZČĆŠĐŽa-zčćšđž\d\s\.\,\*\+\?\!\-\_\/\'\:\;]{5,}$/;
+    let arrSuccess = [];
 
     function proveraRegEx(regEx, element) {
         if (!$(element).val().match(regEx)) {
@@ -23,24 +24,32 @@ $(document).ready(function() {
     firstname.blur(function() {
         if (!proveraRegEx(regFirstname, firstname)) {
             errorsCount++;
+        } else {
+            arrSuccess.push("Ime: " + $(firstname).val());
         }
     });
 
     lastname.blur(function() {
         if (!proveraRegEx(regLastname, lastname)) {
             errorsCount++;
+        } else {
+            arrSuccess.push("Prezime: " + $(lastname).val());
         }
     });
 
     address.blur(function() {
         if (!proveraRegEx(regAddress, address)) {
             errorsCount++;
+        } else {
+            arrSuccess.push("Adresa: " + $(address).val());
         }
     });
 
     message.blur(function() {
         if (!proveraRegEx(regMessage, message)) {
             errorsCount++;
+        } else {
+            arrSuccess.push("Poruka: " + $(message).val());
         }
     });
 
@@ -83,6 +92,7 @@ $(document).ready(function() {
         } else {
             listBirthYear.removeClass("error");
             listBirthYear.addClass("ok");
+            arrSuccess.push("Godina rođenja: " + listBirthYearSelected.val());
         }
 
 
@@ -92,6 +102,7 @@ $(document).ready(function() {
         } else {
             listCity.removeClass("error");
             listCity.addClass("ok");
+            arrSuccess.push("Grad: " + listCitySelected.val());
         }
 
 
@@ -109,6 +120,7 @@ $(document).ready(function() {
         } else {
             gender.removeClass("bg-danger");
             genderChecked.addClass("bg-success");
+            arrSuccess.push("Pol: " + genderChecked.val());
         }
 
 
@@ -119,12 +131,21 @@ $(document).ready(function() {
         } else {
             citizen.removeClass("bg-danger");
             citizenChecked.addClass("bg-success");
+            arrSuccess.push("Državljanin: " + citizens);
         }
 
 
         if (errorsCount == 0) {
             ajaxSendData();
             $("#success-message").html("<p class='alert alert-success'>Uspesno ste poslali podatke</p>");
+
+            let recordsSuccess = '<ul class="list-group">';
+            for (let i in arrSuccess) {
+                recordsSuccess += '<li class="list-group-item">' + arrSuccess[i] + '</li>';
+            }
+            recordsSuccess += '</ul>';
+            $("#success-data").html(recordsSuccess);
+
             $("#formular").css("display", "none");
         }
 
